@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Evenementen - Index</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col">
+
+
+<nav class="bg-gray-800 p-4 text-white flex justify-between items-center">
+    <a href="/events" class="font-bold text-xl">Anderlechtse NGO</a>
+    <div class="space-x-4">
+        <a href="/events/new" class="hover:underline">Nieuw evenement</a>
+        <a href="/about" class="hover:underline">About</a>
+    </div>
+</nav>
+
+
+<main class="flex-grow container mx-auto p-6">
+    <h1 class="text-2xl font-semibold mb-4 text-white">Laatste 10 evenementen</h1>
+
+    <table class="min-w-full bg-gray-800 shadow-md rounded-lg overflow-hidden">
+        <thead class="bg-blue-600 text-white">
+        <tr>
+            <th class="py-3 px-6 text-left uppercase font-semibold text-sm tracking-wider">Titel</th>
+            <th class="py-3 px-6 text-left uppercase font-semibold text-sm tracking-wider">Organisatie</th>
+            <th class="py-3 px-6 text-left uppercase font-semibold text-sm tracking-wider">Details</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Loop door de events -->
+        <tr th:each="event : ${events}" class="border-b border-gray-700 hover:bg-gray-700 cursor-pointer transition duration-200">
+            <td class="py-4 px-6" th:text="${event.title}">Event Titel</td>
+            <td class="py-4 px-6" th:text="${event.organization}">Organisatie</td>
+            <td class="py-4 px-6">
+                <a th:href="@{/events/{id}(id=${event.id})}"
+                   class="text-blue-400 font-semibold hover:underline focus:outline-none focus:ring-2 focus:ring-blue-400 rounded">
+                    Details
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="mt-6">
+        <a href="/events/new" class="inline-block bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition duration-300">
+            Nieuw evenement toevoegen
+        </a>
+    </div>
+</main>
+
+
+<footer class="bg-gray-800 text-center py-4 mt-auto text-gray-400">
+    &copy; 2025 Anderlechtse NGO
+</footer>
+
+</body>
+</html>

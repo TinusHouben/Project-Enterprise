@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="nl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Evenement Details</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col">
+
+<!-- Terugknop -->
+<nav class="bg-gray-800 p-4 text-white">
+    <a href="/events" class="hover:underline">&larr; Terug naar evenementen</a>
+</nav>
+
+<!-- Inhoud -->
+<main class="flex-grow container mx-auto p-6">
+    <h1 class="text-3xl font-bold mb-6" th:text="${event.title}">Titel van evenement</h1>
+
+    <div class="space-y-4 bg-gray-800 p-6 rounded-lg shadow">
+        <p><span class="font-semibold">Organisatie:</span> <span th:text="${event.organization}">Naam van organisatie</span></p>
+        <p><span class="font-semibold">Beschrijving:</span></p>
+        <p th:text="${event.description}" class="text-gray-300">Omschrijving van het evenement.</p>
+        <p><span class="font-semibold">E-mail:</span> <span th:text="${event.email}">voorbeeld@organisatie.be</span></p>
+        <p><span class="font-semibold">Datum & Tijd:</span> <span th:text="${#temporals.format(event.time, 'dd/MM/yyyy HH:mm')}">01/01/2025 19:00</span></p>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer class="bg-gray-800 text-center py-4 mt-auto text-gray-400">
+    &copy; 2025 Anderlechtse NGO
+</footer>
+
+</body>
+</html>
