@@ -27,4 +27,4 @@ Gebruikers kunnen evenementen bekijken, nieuwe evenementen toevoegen, en details
 1. Zorg dat Java en Maven geïnstalleerd zijn.
 2. Clone deze repository:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/TinusHouben/Project-Enterprise/tree/main
